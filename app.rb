@@ -15,65 +15,70 @@ after { puts; }                                                                 
 #######################################################################################
 
 places_table = DB.from(:places)
+reviews_table = DB.from(:reviews)
+users_table = DB.from(:users)
 
-before do
-    @current_user = users_table.where(id: session["user_id"]).to_a[0]
-end
+#before do
+#    @current_user = users_table.where(id: session["user_id"]).to_a[0]
+#end
 
 get "/" do
+    @places = places_table.all.to_a
     view "all"
 end
 
-get "/:name" do
+get "/detail/:name" do
+     @place = places_table.where(name:params[:name]).to_a[0]
+    # @reviews = rsvps_table.where(reviews_id: @reviews[:id])
     view "detail"
 end
 
-get "/favorites" do
-    view "favorites"
-end
+#get "/favorites" do
+#    view "favorites"
+#end
 
-get "/nearby" do
-    view "nearby"
-end
+#get "/nearby" do
+#    view "nearby"
+#end
 
-get "/surpriseme" do
-    view "surpriseme"
-end
+#get "/surpriseme" do
+#    view "surpriseme"
+#end
 
-get "/users/new" do
-    view "auth_new_user"
-end
+#get "/users/new" do
+#    view "auth_new_user"
+#end
 
-get "/users/create" do
-    puts params
-    users_table.insert(name: params["name"],
-                       email: params["email"],
-                       password: BCrypt::Password.create(params["password"]))
-    view "auth_create_user"
-end
+#get "/users/create" do
+#    puts params
+#    users_table.insert(name: params["name"],
+#                      email: params["email"],
+#                       password: BCrypt::Password.create(params["password"]))
+#    view "auth_create_user"
+#end
 
-get "/logins/new" do
-    view "auth_new_login"
-end
+#get "/logins/new" do
+#    view "auth_new_login"
+#end
 
-post "/logins/create" do
-    puts params
-    email_address = params["email"]
-    password = params["password"]
+#post "/logins/create" do
+#    puts params
+#    email_address = params["email"]
+#    password = params["password"]
 
-    @user = users_table.where(email: email_address).to_a[0]
-    if @user
-        if BCrypt::Password.new(@user[:password]) == password
-            session["user_id"] = @user[:id]
-            view "auth_create_login"
-        else
-            view "auth_login_failed"
-        end
-    else
-        view "auth_login_failed"
-    end
+#    @user = users_table.where(email: email_address).to_a[0]
+#    if @user
+#        if BCrypt::Password.new(@user[:password]) == password
+#            session["user_id"] = @user[:id]
+#            view "auth_create_login"
+#        else
+#            view "auth_login_failed"
+#        end
+#    else
+#        view "auth_login_failed"
+#    end
 
-get "/logout" do
-    session["user_id"] = nil
-    view "logout"
-end
+#get "/logout" do
+#    session["user_id"] = nil
+#    view "logout"
+#end

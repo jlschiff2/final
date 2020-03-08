@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="col-sm-9">
+        <h1><%= @place[:name] %></h1>
+        <h2><%= @place[:street] %></h2> 
+        <h2><%= @place[:neighborhood] %>, <%= @place[:city] %></h2>   
+        <p><%= @place[:phone] %></p> 
+        <a href="http://www.<%= @place[:webURL] %>" class="btn btn-primary">Visit Website</a>
+        <a href="<%= @place[:resURL] %>" class="btn btn-primary">Make a Reservation</a>
+    </div>
+    <div class="col-sm-3">
+        <p> Have you visited this place? </p>
+        <a> class="btn btn-primary">Write a Review</a></p>
+    </div>
+</div>

@@ -15,11 +15,24 @@ DB.create_table! :places do
   String :longitude
   String :phone
   String :webURL
-  Boolean :visited
-  Boolean :favorite
   Boolean :reservation
   String :resURL
-  String :notes, text: true
+end
+
+DB.create_table! :reviews do
+  primary_key :id
+  foreign_key :location_id
+  foreign_key :user_id
+  Boolean :visited
+  Boolean :favorite
+  String :reviews, text: true
+end
+
+DB.create_table! :users do
+  primary_key :id
+  String :name
+  String :email
+  String :password
 end
 
 # Insert initial (seed) data
