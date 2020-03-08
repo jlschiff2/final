@@ -6,9 +6,18 @@
         <p><%= @place[:phone] %></p> 
         <a href="http://www.<%= @place[:webURL] %>" class="btn btn-primary">Visit Website</a>
         <a href="<%= @place[:resURL] %>" class="btn btn-primary">Make a Reservation</a>
-    </div>
+
+    #<iframe
+    #   width="600"
+    #  height="450"
+    #    frameborder="0" style="border:0"
+    #    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCtovsQvkIUWlNqtYwXY87gEd4ZSmJEhMw
+    #     &q=EMBED_RUBY&zoom=6" allowfullscreen>
+    #  </iframe>
+    #</div>
+
     <div class="col-sm-3">
         <p> Have you visited this place? </p>
-        <a> class="btn btn-primary">Write a Review</a></p>
+        <a href="/review/<%= @place[:name] %>/new" class="btn btn-primary">Write a Review</a></p>
     </div>
 </div>
