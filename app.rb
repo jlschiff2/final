@@ -36,21 +36,32 @@ get "/detail/:name" do
     view "detail"
 end
 
-get "/review/:name/new" do
+get "/review/:name" do
+    @place = places_table.where(name:params[:name]).to_a[0]
     view "add_review"
 end
 
+get "/review/:name/create" do
+    puts params
+    @place = places_table.where(name:params[:name]).to_a[0]
+    rsvps_table.insert(id: params["id"],
+                       location_id: params[@place[:id]],
+                       favorite: params["favorite"],
+                       reviews: params["reviews"])
+    view "create_review"
+end
+
 #get "/favorites" do
-#    view "favorites"
+    #view "favorites"
 #end
 
 #get "/nearby" do
 #    view "nearby"
 #end
 
-#get "/surpriseme" do
-#    view "surpriseme"
-#end
+get "/surpriseme" do
+    view "surpriseme"
+end
 
 #get "/users/new" do
 #    view "auth_new_user"
