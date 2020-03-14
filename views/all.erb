@@ -1,5 +1,9 @@
-<h1>Top 25 Brunch Spots</h1>
 
-<% for place in @places %>
-    <p><a href="detail/<%= place[:name] %>"> <%= place[:name] %></a></p>
-<% end %>
+<div class="row">
+    <div class="col-sm-6"><h1>Top 25 Brunch Spots</h1>
+
+    <% for place in @places %>
+        <p><a href="detail/<%= place[:name] %>"> <%= place[:name] %></a></p>
+    <% end %>
+    </div>
+</div>

@@ -22,20 +22,35 @@
   </head>
   <body>
 
-    <div class="container mt-5">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
             <a class="navbar-brand" href="/">606 Brunch</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-item nav-link" href="/nearby">Nearby</a>
-                <a class="nav-item nav-link" href="/surpriseme">Surprise Me!</a>
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Sign in</a>
-            </div>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Nearby</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Surprise Me!</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/users/new">Sign Up</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logins/new">Sign In</a>
+                </li>
+            </ul>
+            <% if @current_user %>
+                <ul class="navbar-nav ml-auto">
+                    <li class="navbar-text">
+                        Logged in as <%= @current_user[:name] %>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/logout" class="nav-link">Logout</a>
+                    </li>
+                </ul>
+            <% end %>
         </div>
-        </nav>
+    </nav>
         <%= yield %>
     </div>
 
