@@ -1,2 +1,7 @@
-<h1> Where should I brunch today?</h1>
-    <p><a href="#" class="btn btn-primary">Surprise me!</a></p>
+<div class="row">
+    <div class="col-sm-8">
+        <h1> Where should I brunch today?</h1>
+        <h2> You're going to <%= @surprise_place[:name] %></h2>   
+
+        <p><a href="/surpriseme" class="btn btn-primary">Go again!</a></p>
+    </div>

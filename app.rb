@@ -29,11 +29,11 @@ get "/" do
 end
 
 get "/detail/:name" do
-     @place = places_table.where(name:params[:name]).to_a[0]
-     # @lat = places_table.where(latitude:params[:latitude]).to_a[0]
-     # @long = places_table.where(longitude:params[:longitude]).to_a[0]
-     # @lat_long = "#{@lat},#{@long}"
-     # @reviews = rsvps_table.where(reviews_id: @reviews[:id])
+    @place = places_table.where(name:params[:name]).to_a[0]
+    @lat = places_table.where(latitude:params[:latitude]).to_a[0]
+     @long = places_table.where(longitude:params[:longitude]).to_a[0]
+     @lat_long = "#{@lat},#{@long}"
+     # @reviews = reviews_table.where(reviews_id: @reviews[:id])
     view "detail"
 end
 
@@ -45,7 +45,7 @@ end
 get "/review/:name/create" do
     puts params
     @place = places_table.where(name:params[:name]).to_a[0]
-    rsvps_table.insert(id: params["id"],
+    reviews_table.insert(id: params["id"],
                        location_id: params[@place[:id]],
                        favorite: params["favorite"],
                        reviews: params["reviews"])
@@ -56,11 +56,17 @@ end
     #view "favorites"
 #end
 
-#get "/nearby" do
-#    view "nearby"
-#end
+get "/nearby" do
+    view "nearby"
+end
+
+get "/nearby/:neighborhood" do
+    view "nearby_neighborhood"
+end
 
 get "/surpriseme" do
+    @surprise_number = rand(1..25)
+    @surprise_place = places_table.where(id:@surprise_number).to_a[0]
     view "surpriseme"
 end
 
