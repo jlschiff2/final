@@ -45,7 +45,7 @@ places_table.insert(name: "Jam",
                     neighborhood: "Logan Square",
                     phone: "773-292-6011",
                     webURL: "jamrestaurant.com",
-                    reservation: 0)
+                    reservation: false)
 
 places_table.insert(name: "Roister", 
                     street: "95 W Fulton Market",
@@ -55,7 +55,7 @@ places_table.insert(name: "Roister",
                     neighborhood: "West Loop",
                     phone: "312-789-4896",
                     webURL: "roisterrestaurant.com",
-                    reservation: 1,
+                    reservation: true,
                     resURL: "https://www.exploretock.com/roister/")
 
 places_table.insert(name: "3 Squares Diner", 
@@ -66,7 +66,7 @@ places_table.insert(name: "3 Squares Diner",
                     neighborhood: "Uptown",
                     phone: "773-293-6158",
                     webURL: "3squaresdiner.com",
-                    reservation: 1,
+                    reservation: true,
                     resURL: "https://www.exploretock.com/3squaresdiner/")
 
 places_table.insert(name: "Band of Bohemia", 
@@ -77,7 +77,7 @@ places_table.insert(name: "Band of Bohemia",
                     neighborhood: "Ravenswood",
                     phone: "773-271-4710",
                     webURL: "bandofbohemia.com",
-                    reservation: 1,
+                    reservation: true,
                     resURL: "https://www.exploretock.com/bandofbohemia/")
 
 places_table.insert(name: "etta", 
@@ -88,7 +88,7 @@ places_table.insert(name: "etta",
                     zip: "60622",
                     phone: "312-757-4444",
                     webURL: "ettarestaurant.com",
-                    reservation: 1,
+                    reservation: true,
                     resURL: "https://www.sevenrooms.com/reservations/ettarestaurant/goog/")
 
 places_table.insert(name: "Dove's Luncheonette", 
@@ -99,7 +99,7 @@ places_table.insert(name: "Dove's Luncheonette",
                     neighborhood: "Wicker Park",
                     phone: "773-645-4060",
                     webURL: "doveschicago.com",
-                    reservation: 1,
+                    reservation: true,
                     resURL: "https://resy.com/cities/chi/doves-luncheonette")
 
 places_table.insert(name: "Tre Kronor", 
@@ -110,7 +110,7 @@ places_table.insert(name: "Tre Kronor",
                     neighborhood: "Albany Park",
                     phone: "773-267-9888",
                     webURL: "trekronorrestaurant",
-                    reservation: 0)
+                    reservation: false)
 
 places_table.insert(name: "Amaru", 
                     street: "1904 W North Ave",
@@ -120,7 +120,7 @@ places_table.insert(name: "Amaru",
                     neighborhood: "Wicker Park",
                     phone: "773-687-9790",
                     webURL: "amaruchicago.com",
-                    reservation: 1,
+                    reservation: true,
                     resURL: "https://www.opentable.com/r/amaru-chicago")
 
 places_table.insert(name: "Batter & Berries", 
@@ -131,7 +131,7 @@ places_table.insert(name: "Batter & Berries",
                     neighborhood: "Lincoln Park",
                     phone: "773-248-7710",
                     webURL: "batterandberries.com",
-                    reservation: 0)
+                    reservation: false)
 
 places_table.insert(name: "Pacific Standard Time", 
                     street: "141 W Erie St",
@@ -141,7 +141,7 @@ places_table.insert(name: "Pacific Standard Time",
                     neighborhood: "River North",
                     phone: "312-736-1778",
                     webURL: "pstchicago.com",
-                    reservation: 1,
+                    reservation: true,
                     resURL: "https://resy.com/cities/chi/pacific-standard-time")
 
 places_table.insert(name: "M Henry", 
@@ -152,7 +152,7 @@ places_table.insert(name: "M Henry",
                     neighborhood: "Andersonville",
                     phone: "773-561-1600",
                     webURL: "mhenry.net",
-                    reservation: 0)
+                    reservation: false)
                 
 places_table.insert(name: "Steingold's", 
                     street: "1840 W Irving Park Rd",
@@ -162,7 +162,7 @@ places_table.insert(name: "Steingold's",
                     neighborhood: "North Center",
                     phone: "773-661-2469",
                     webURL: "steingoldsdeli.com",
-                    reservation: 0)
+                    reservation: false)
  
 places_table.insert(name: "Beatrix", 
                     street: "519 N Clark St",
@@ -172,7 +172,7 @@ places_table.insert(name: "Beatrix",
                     neighborhood: "River North",
                     phone: "312-284-1377",
                     webURL: "beatrixrestaurants.com/beatrix/river-north/",
-                    reservation: 1,
+                    reservation: true,
                     resURL: "https://www.opentable.com/beatrix-river-north")
 
 places_table.insert(name: "All Together Now", 
@@ -183,7 +183,7 @@ places_table.insert(name: "All Together Now",
                     neighborhood: "West Town",
                     phone: "773-661-1599",
                     webURL: "alltogethernow.fun",
-                    reservation: 0)
+                    reservation: false)
 
 places_table.insert(name: "Little Goat Diner", 
                     street: "820 W Randolph St",
@@ -193,7 +193,7 @@ places_table.insert(name: "Little Goat Diner",
                     neighborhood: "West Loop",
                     phone: "312-888-3455",
                     webURL: "littlegoatchicago.com",
-                    reservation: 1,
+                    reservation: true,
                     resURL: "https://www.exploretock.com/littlegoatchicago/")
 
 places_table.insert(name: "Gather", 
@@ -204,7 +204,7 @@ places_table.insert(name: "Gather",
                     neighborhood: "Lincoln Square",
                     phone: "773-506-9300",
                     webURL: "gatherchicago.com",
-                    reservation: 1,
+                    reservation: true,
                     resURL: "https://resy.com/cities/chi/gather")
 
 places_table.insert(name: "Mindy's Hot Chocolate", 
@@ -215,7 +215,7 @@ places_table.insert(name: "Mindy's Hot Chocolate",
                     neighborhood: "Bucktown",
                     phone: "773-489-1747",
                     webURL: "hotchocolatechicago.com",
-                    reservation: 1,
+                    reservation: true,
                     resURL: "https://resy.com/cities/chi/hot-chocolate")
 
 places_table.insert(name: "Southport Grocery", 
@@ -226,7 +226,7 @@ places_table.insert(name: "Southport Grocery",
                     neighborhood: "Lakeview",
                     phone: "773-665-0100",
                     webURL: "southportgrocery.com",
-                    reservation: 0)
+                    reservation: false)
 
 places_table.insert(name: "Hutch American Bistro", 
                     street: "3301 N Clark St",
@@ -236,7 +236,7 @@ places_table.insert(name: "Hutch American Bistro",
                     neighborhood: "Lakeview",
                     phone: "773-248-1155",
                     webURL: "hutchamericanbistro.com",
-                    reservation: 1,
+                    reservation: true,
                     resURL: "https://www.opentable.com/r/hutch-american-bistro-lakeview-chicago")
 
 places_table.insert(name: "Big Jones", 
@@ -247,7 +247,7 @@ places_table.insert(name: "Big Jones",
                     zip: "60640",
                     phone: "773-275-5725",
                     webURL: "bigjoneschicago.com",
-                    reservation: 1,
+                    reservation: true,
                     resURL: "https://www.exploretock.com/bigjones/")
 
 places_table.insert(name: "S.K.Y.", 
@@ -258,7 +258,7 @@ places_table.insert(name: "S.K.Y.",
                     neighborhood: "Pilsen",
                     phone: "312-846-1077",
                     webURL: "skyrestaurantschicago.com",
-                    reservation: 1,
+                    reservation: true,
                     resURL: "https://resy.com/cities/chi/s-k-y")
 
 places_table.insert(name: "Virtue", 
@@ -269,7 +269,7 @@ places_table.insert(name: "Virtue",
                     neighborhood: "Hyde Park",
                     phone: "773-947-8831",
                     webURL: "virtuerestaurant.com",
-                    reservation: 1,
+                    reservation: true,
                     resURL: "https://resy.com/cities/chi/virtue-restaurant-and-bar")
 
 places_table.insert(name: "Summer House Santa Monica", 
@@ -280,7 +280,7 @@ places_table.insert(name: "Summer House Santa Monica",
                     neighborhood: "Lincoln Park",
                     phone: "773-634-4100",
                     webURL: "summerhousesm.com",
-                    reservation: 1,
+                    reservation: true,
                     resURL: "https://www.opentable.com/summer-house")
 
 places_table.insert(name: "The Publican", 
@@ -291,5 +291,5 @@ places_table.insert(name: "The Publican",
                     neighborhood: "West Loop",
                     phone: "312-733-9555",
                     webURL: "thepublicanrestaurant.com",
-                    reservation: 1,
+                    reservation: true,
                     resURL: "https://resy.com/cities/chi/the-publican")

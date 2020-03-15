@@ -64,16 +64,6 @@ end
 get "/surpriseme" do
     @surprise_number = rand(1..25)
     @surprise_place = places_table.where(id:@surprise_number).to_a[0]
-
-    @surprise_location = "#{@surprise_place[:street]},#{@surprise_place[:city]} #{@surprise_place[:state]} #{@surprise_place[:zip]}"
-    results = Geocoder.search(@surprise_location)
-
-    lat_long = results.first.coordinates # => [lat, long]
-    @lat_long = "#{lat_long[0]}, #{lat_long[1]}"
-
-    @reviews = reviews_table.where(location_id: @surprise_place[:id])
-    @fav_count = reviews_table.where(location_id: @surprise_place[:id], favorite: true).count
-    @users_table = users_table
     view "surpriseme"
 end
 
