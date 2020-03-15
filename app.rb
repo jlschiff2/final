@@ -19,9 +19,9 @@ places_table = DB.from(:places)
 reviews_table = DB.from(:reviews)
 users_table = DB.from(:users)
 
-# before do
-#    @current_user = users_table.where(id: session["user_id"]).to_a[0]
-# end
+before do
+    @current_user = users_table.where(id: session["user_id"]).to_a[0]
+end
 
 get "/" do
     @places = places_table.all.to_a
@@ -33,23 +33,26 @@ get "/detail/:name" do
     @lat = places_table.where(latitude:params[:latitude]).to_a[0]
     @long = places_table.where(longitude:params[:longitude]).to_a[0]
     @lat_long = "#{@lat},#{@long}"
-    # @reviews = reviews_table.where(reviews_id: @reviews[:id])
+    @reviews = reviews_table.where(location_id: @place[:id])
+    @fav_count = reviews_table.where(location_id: @place[:id], favorite: true).count
+    @users_table = users_table
     view "detail"
 end
 
 get "/review/:name" do
     @place = places_table.where(name:params[:name]).to_a[0]
-    @review = reviews_table.where(id: params[:id]).to_a[0]
     view "add_review"
 end
 
 get "/review/:name/create" do
     puts params
     @place = places_table.where(name:params[:name]).to_a[0]
+    @review = reviews_table.where(id: params[:id]).to_a[0]
     reviews_table.insert(id: params["id"],
-                        location_id: params[@place[:id]],
+                        location_id: @place[:id],
+                        user_id: session["user_id"],
                         favorite: params["favorite"],
-                        reviews: params["reviews"])
+                        reviews: params["review"])
     view "create_review"
 end
 
@@ -89,7 +92,7 @@ post "/logins/create" do
 
     @user = users_table.where(email: params["email"]).to_a[0]
     puts BCrypt::Password::new(@user[:password])
-    if @user && BCrypt::Password::new(user[:password]) == params["password"]
+    if @user && BCrypt::Password::new(@user[:password]) == params["password"]
         session["user_id"] = @user[:id]
         @current_user = @user
         view "auth_create_login"

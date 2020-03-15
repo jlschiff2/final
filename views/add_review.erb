@@ -8,16 +8,15 @@
         <p></p>
         <form action="/review/<%= @place[:name] %>/create">
             <div class="form-group">
-                <label for="exampleFormControlInput1">Email address</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-            </div>
-            <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check if this place is a favorite</label>
+                <label>Is this place a favorite?</label>
+                    <select class="form-control" name="favorite">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
             </div>
             <div class="form-group">
-                <label for="exampleFormControlTextarea1">Write your review here.</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <label>Write your review here.</label>
+                <textarea class="form-control" rows="3" name="review"></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>   

@@ -1,11 +1,15 @@
+
+<div class="container">
 <div class="row">
     <div class="col-sm-6">
         <h1><%= @place[:name] %></h1>
         <h2><%= @place[:street] %></h2> 
-        <h2><%= @place[:neighborhood] %>, <%= @place[:city] %></h2>   
+        <h2><%= @place[:city] %>, <%= @place[:state] %> <%= @place[:zip] %></h2>   
         <p><%= @place[:phone] %></p> 
         <a href="http://www.<%= @place[:webURL] %>" class="btn btn-primary">Visit Website</a>
         <a href="<%= @place[:resURL] %>" class="btn btn-primary">Make a Reservation</a>
+        <p></p>
+        <h3> <%= @fav_count %> guests say it's a favorite.</h3>
     </div>
 
     <div class="col-sm-6">
@@ -20,4 +24,20 @@
         <p> Have you visited <%= @place[:name]%>?</p>
         <p><a href="/review/<%= @place[:name] %>" class="btn btn-primary">Write a Review</a></p>
     </div>
+</div>
+<div class="row">
+    <% for review in @reviews %>
+            <div class="media">
+                <% if review[:favorite] %>
+                    <i class="fas fa-star"> </i>
+                <% else %>
+                    <i class="nil"> </i>
+                <% end %>
+                <div class="media-body">
+                    <h5 class="mt-0"><%= @users_table.where(id: review[:user_id]).to_a[0][:name] %></h5>
+                    <p><%= review[:reviews] %></p>
+                </div>
+            </div>
+        <% end %>
+</div>
 </div>
