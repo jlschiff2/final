@@ -2,8 +2,20 @@
 <div class="row">
     <div class="col-sm-8">
         <h1> Where should I brunch today?</h1>
-        <h2> You're going to <%= @surprise_place[:name] %></h2>   
-
+        <h2> You're going to <%= @surprise_place[:name] %></h2> 
+        
+        <h2><%= @surprise_place[:street] %></h2> 
+        <h2><%= @surprise_place[:city] %>, <%= @surprise_place[:state] %> <%= @surprise_place[:zip] %></h2>   
+        <p><%= @surprise_place[:phone] %></p> 
+        <a href="http://www.<%= @surprise_place[:webURL] %>" class="btn btn-primary">Visit Website</a>
+        <% if @surprise_place[:reservation] %>
+            <a href="<%= @surprise_place[:resURL] %>" class="btn btn-primary">Make a Reservation</a>
+          <% else %>
+            <i class="fas fa-times"></i>
+            Doesn't take reservations
+        <% end %>
+        <p></p>
+        <p></p>
         <p><a href="/surpriseme" class="btn btn-primary">Go again!</a></p>
     </div>
 </div>

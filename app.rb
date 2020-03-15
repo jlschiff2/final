@@ -30,12 +30,17 @@ end
 
 get "/detail/:name" do
     @place = places_table.where(name:params[:name]).to_a[0]
-    @lat = places_table.where(latitude:params[:latitude]).to_a[0]
-    @long = places_table.where(longitude:params[:longitude]).to_a[0]
-    @lat_long = "#{@lat},#{@long}"
+    @location = "#{@place[:street]},#{@place[:city]} #{@place[:state]} #{@place[:zip]}"
+    results = Geocoder.search(@location)
+    puts results
+
+    lat_long = results.first.coordinates # => [lat, long]
+    @lat_long = "#{lat_long[0]}, #{lat_long[1]}"
+
     @reviews = reviews_table.where(location_id: @place[:id])
     @fav_count = reviews_table.where(location_id: @place[:id], favorite: true).count
     @users_table = users_table
+
     view "detail"
 end
 
@@ -56,17 +61,19 @@ get "/review/:name/create" do
     view "create_review"
 end
 
-get "/nearby" do
-    view "nearby"
-end
-
-get "/nearby/:neighborhood" do
-    view "nearby_neighborhood"
-end
-
 get "/surpriseme" do
     @surprise_number = rand(1..25)
     @surprise_place = places_table.where(id:@surprise_number).to_a[0]
+
+    @surprise_location = "#{@surprise_place[:street]},#{@surprise_place[:city]} #{@surprise_place[:state]} #{@surprise_place[:zip]}"
+    results = Geocoder.search(@surprise_location)
+
+    lat_long = results.first.coordinates # => [lat, long]
+    @lat_long = "#{lat_long[0]}, #{lat_long[1]}"
+
+    @reviews = reviews_table.where(location_id: @surprise_place[:id])
+    @fav_count = reviews_table.where(location_id: @surprise_place[:id], favorite: true).count
+    @users_table = users_table
     view "surpriseme"
 end
 

@@ -7,9 +7,14 @@
         <h2><%= @place[:city] %>, <%= @place[:state] %> <%= @place[:zip] %></h2>   
         <p><%= @place[:phone] %></p> 
         <a href="http://www.<%= @place[:webURL] %>" class="btn btn-primary">Visit Website</a>
-        <a href="<%= @place[:resURL] %>" class="btn btn-primary">Make a Reservation</a>
+        <% if @place[:reservation] %>
+            <a href="<%= @place[:resURL] %>" class="btn btn-primary">Make a Reservation</a>
+        <% else %>
+            <i class="fas fa-times"></i>
+            Doesn't take reservations
+        <% end %>
         <p></p>
-        <h3> <%= @fav_count %> guests say it's a favorite.</h3>
+        <h3> <i class="fas fa-star"> </i> : <%= @fav_count %> </h3>
     </div>
 
     <div class="col-sm-6">
@@ -18,11 +23,15 @@
            height="300"
            frameborder="0" style="border:0"
            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCtovsQvkIUWlNqtYwXY87gEd4ZSmJEhMw
-           &q=<%= @place[:latitude] %>,<%= @place[:longitude] %>&zoom=6" allowfullscreen>
-      </iframe>
+           &q=<%= @lat_long %>&zoom=15" allowfullscreen>
+        </iframe>
       <p></p>
         <p> Have you visited <%= @place[:name]%>?</p>
-        <p><a href="/review/<%= @place[:name] %>" class="btn btn-primary">Write a Review</a></p>
+            <% if @current_user %>
+                <a href="/review/<%= @place[:name] %>" class="btn btn-primary">Write a review</a>
+            <% else %>
+                <a href="/logins/new" class="btn btn-danger">Please sign in to review</a>
+            <% end %>
     </div>
 </div>
 <div class="row">
